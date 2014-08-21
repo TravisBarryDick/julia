@@ -119,14 +119,8 @@ void parse_opts(int *argcp, char ***argvp)
             jl_compileropts.image_file = strdup(optarg);
             imagepathspecified = 1;
             break;
-            case 'C':
-            if( strcmp(optarg, "native") == 0 || strcmp(optarg, "i386") == 0 || strcmp(optarg, "core2") == 0 ) {
-                jl_compileropts.cpu_target = strdup(optarg);
-            }
-            else {
-                ios_printf(ios_stderr, "julia: invalid cpu-target \"%s\" specified\n", optarg );
-                exit(1);
-            }
+        case 'C':
+            jl_compileropts.cpu_target = strdup(optarg);
             break;
         case 'h':
             ios_printf(ios_stdout, "%s%s", usage, opts);
