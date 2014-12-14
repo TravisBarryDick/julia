@@ -1351,7 +1351,7 @@ extern void jl_get_uv_hooks();
 
 // Takes in a path of the form "usr/lib/julia/sys.ji", such as passed in to jl_restore_system_image()
 DLLEXPORT
-const char * jl_get_system_image_cpu_target(char *fname)
+const char * jl_get_system_image_cpu_target(const char *fname)
 {
     // If passed NULL, don't even bother
     if (!fname)
